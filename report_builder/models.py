@@ -547,6 +547,17 @@ class DisplayField(AbstractField):
         ),
         blank=True
     )
+    order_by = models.CharField(
+        max_length=4,
+        choices=[
+            ('asc', 'Ascending'),
+            ('desc', 'Descending'),
+            ('', 'No Order'),
+        ],
+        blank=True,
+        default='',
+        help_text='Sort order for this field'
+    )
     total = models.BooleanField(default=False)
     group = models.BooleanField(default=False)
     display_format = models.ForeignKey(Format, blank=True, null=True,
